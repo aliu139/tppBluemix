@@ -10,6 +10,7 @@ var express = require('express');
 var request = require('request');
 
 var user = require('./public/routes/user.js');
+var data = require('./public/routes/data.js');
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -22,6 +23,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.use('/user', user);
+app.use('/data', data);
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
